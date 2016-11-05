@@ -1,0 +1,262 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+
+    <head>
+        <title>Compare Law</title>
+
+        <link href="css/horizontal_menu.css" rel="stylesheet" type="text/css" />
+        
+        <script language="javascript" type="text/javascript">
+
+            function checkLaws(lawsInput) 
+            {
+                //alert("Inside function checkLaws");
+
+                law1 = 0;//initalizing
+                law2 = 0;//and declaring
+                country1 = 0;//the
+                country2 = 0;//variables
+                americanLawMenu1 = 0;//that
+                americanLawMenu2 = 0;//will
+                australianLawMenu1 = 0;//be
+                australianLawMenu2 = 0;  //used
+                oneLaw = 0;// The variable that is used with the confirm box to verify that the user only meant to check one law
+
+                for (i = 0; i < lawsInput.choice1.length; i++) //loops through each radio button to see how many are checked
+                {
+                    if (lawsInput.choice1[i].checked) //checks to see if each individual radio button is checked
+                    {
+                        law1++;
+                    } //end if lawsInput.choice1[i].checked
+
+                } //end for loop
+
+                for (i = 0; i < lawsInput.choice2.length; i++) //loops through each radio button to see how many are checked
+                {
+                    if (lawsInput.choice2[i].checked) //checks to see if each individual radio button is checked
+                    {
+                        law2++;
+                    } //end if lawsInput.choice2[i].checked
+
+                } //end for loop
+                
+                for (i = 0; i < lawsInput.menu1.length; i++) //loops through each radio button to see how many are checked
+                {
+                    if (lawsInput.menu1[i].checked) //checks to see if each individual radio button is checked
+                    {
+                        country1++;
+                    } //end if lawsInput.menu1[i].checked
+
+                } //end for loop
+
+                                
+                for (i = 0; i < lawsInput.menu2.length; i++) //loops through each radio button to see how many are checked
+                {
+                    if (lawsInput.menu2[i].checked) //checks to see if each individual radio button is checked
+                    {
+                        country2++;
+                    } //end if lawsInput.menu2[i].checked
+
+                } //end for loop
+
+                if (law1==0 && law2==0)
+                {
+                    alert("You must select at least one law.");
+                    return false; // if none of the radio buttons are checked it forces the user to return to the form
+                } // end if law1==0 && law2==0
+
+                //alert("country1 is equal to " + country1 + " and country2 is equal to " + country2 + ".");
+
+                if (country1==0 && country2==0)
+                {
+                    alert("You must select at least one country.");
+                    return false; // if none of the radio buttons are checked then force the user to return to the form
+                } // end if law1==0 && law2==0
+
+                if (law1 != 0 && law2 == 0 || law1 == 0 && law2 != 0) 
+                {
+                    oneLaw = confirm("Are you sure that you only want to view one law?"); // If only one radio button is checked, asks the user if they really meant to only check one radio button
+                } // end if law1!=0 && law2==0||law1==0 && law2!=0
+
+                if (oneLaw == false)
+                {
+                    return false;
+                } // end if oneLaw == false
+
+                americanLawMenu1 = lawsInput.americanLaw1.selectedIndex; // used to check 
+                americanLawMenu2 = lawsInput.americanLaw2.selectedIndex; // to see if
+                australianLawMenu1 = lawsInput.australianLaw1.selectedIndex; // the defult choice
+                australianLawMenu2 = lawsInput.australianLaw2.selectedIndex; // is still selected 
+
+                for (i = 0; i < lawsInput.choice1.length; i++) //loops through the radio buttons for choice one to see if one is checked
+                {
+
+                //alert("lawsInput.americanLaw1.options[americanLawMenu1].value is equal to " + (lawsInput.americanLaw1.options[americanLawMenu1].value == " "));
+                //alert("lawsInput.choice1.value is equal to " + (lawsInput.choice1[i].checked));
+
+                    if (lawsInput.choice1[i].checked == true && lawsInput.americanLaw1.options[americanLawMenu1].value == " " && lawsInput.australianLaw1.options[australianLawMenu1].value == " ")
+                    {
+                        alert("Please pick a law for choice one.");
+                        return false;
+                    } // end if lawsInput.choice1[i].checked == true && lawsInput.americanLaw1.options[americanLawMenu1].value == " "
+
+                } // end for loop
+                
+                for (i = 0; i < lawsInput.choice2.length; i++) //loops through the radio buttons for choice two to see if one is checked
+                {
+                    //alert("lawsInput.choice2[i] is equal to " + (lawsInput.choice2[i] == true));
+
+                    if (lawsInput.choice2[i].checked == true && lawsInput.americanLaw2.options[americanLawMenu2].value == " " && lawsInput.australianLaw2.options[australianLawMenu2].value == " ")
+                    {
+                        alert("Please pick a law for choice two.");
+                        return false;
+                    } // end if lawsInput.choice2[i].checked == true && lawsInput.americanLaw2.options[americanLawMenu2].value == " "
+
+                } // end for loop
+
+                //alert("end of function.");
+
+            } //end function
+
+                /*function showMenu(whichMenu)
+                {
+                    alert("whichMenu is equal to " + whichMenu);
+
+                    if (whichMenu == "american")
+                    {
+                        lawsInput.americanLaw1.disable[en];
+                    }
+                    else
+                    {
+                        alert("You picked Australian.");
+                    }                  
+                }*/
+
+        </script>
+
+    </head>
+
+    <body>
+
+        <div id="navbar">
+            <ul>
+                <li style="width:50px"><a href="home.htm">Home</a></li>
+                <li><a href="americanLaw.htm">List of American Federal Computer Laws</a></li>
+                <li><a href="australianLaw.htm">List of Australian Federal Computer Laws</a></li>
+                <li style="width:675px"><a><input type="text" size="90" /> <input type="button" value="Search" /></a></li>
+            </ul>
+        </div>
+
+        <div style="background-color:#630063; color:#ffc100; font-weight:bold; width:5%; height:50%">
+            Links to other relevent sites.
+
+        </div>
+
+        <div style="float:left;  margin:10px; width: 5%">
+            This page allows you to compare any two federal Australian or American computer laws.  Simply select the laws that you want to compare and click "Compare Laws".
+        </div>
+
+        <form onsubmit="return checkLaws(this)" action="displayLaw.htm" name="law">
+            
+            <div style="float:left;">
+
+                <input type="radio" name="choice1" value="overview1" /> Summery of the law
+                <input type="radio" name="choice1" value="text1" /> Text of the law
+
+                <input type="radio" name="menu1" value="american1"   onclick="document.law.americanLaw1.disabled=false; document.law.australianLaw1.disabled=false" /> American laws
+                <input type="radio" name="menu1" value="australian1" onclick="document.law.australianLaw1.disabled=false; document.law.americanLaw1.disabled=false" /> Australian laws
+
+                <select name="americanLaw1" disabled="disabled">
+                    <option value=" " selected="selected">American Laws</option>
+                    <option value="american1">Title 15 of the U. S. Code</option>
+                    <option value="american2">Title 17 of the U. S. Code</option>
+                    <option value="american3">Title 18 of the U. S. Code</option>
+                    <option value="american4">Title 42 of the U. S. Code</option>                   
+                    <option value="american5">Title 47 of the U. S. Code</option>
+                    <option value="american6">Section 225 of the Homland Security Act</option>
+                    <option value="american7">Access Device Fraud Act of 1984</option>
+                    <option value="american8">Child Online Protection Act (COPA)</option>
+                    <option value="american9">Child Pornography Prevention Act (CPPA)</option>
+                    <option value="american10">Child Protection and Obscenity Enforcement Act</option>
+                    <option value="american11">Child Protection Restoration and Penalties Enforcement Act</option>
+                    <option value="american12">Communications Decency Act</option>
+                    <option value="american13">The Computer Fraud and Abuse Act (CFAA)</option>
+                    <option value="american14">Computer Misuse Act</option>
+                    <option value="american15">The Computer Security Act of 1987</option>
+                    <option value="american16">Controlling the Assault of Non-Solicited Pornography and Marketing (CAN) Act of 2003</option>
+                    <option value="american17">The Cyber Security Enhancement Act of 2002</option>
+                    <option value="american18">The Digital Millennium Copyright Act of 1998 (DMCA)</option>
+                    <option value="american19">Economic Espionage Act of 1996</option>
+                    <option value="american20">Electronic Communications Privacy Act (ECPA)</option>
+                    <option value="american21">Fair Credit Reporting Act</option>
+                    <option value="american22">Identity Theft and Assumption Deterrence Act of 1998</option>
+                    <option value="american23">Information Technology Management Reform Act of 1996</option>
+                    <option value="american24">National Information Infrastructure Protection Act of 1996</option>
+                    <option value="american25">National Security Intelligence Reform Act of 2004</option>
+                    <option value="american26">No Electronic Theft Act of 1997</option>
+                </select>
+
+                <select name="australianLaw1" disabled="disabled">
+                    <option value=" " selected="selected">The Australian Criminal Code</option>
+                    <option value="australian1">Section 476</option>
+                    <option value="australian2">Section 477</option>
+                    <option value="australian3">Section 478</option>
+                </select>
+
+                <br />
+
+                <input type="radio" name="choice2" value="overview2" /> Summery of the law
+                <input type="radio" name="choice2" value="text2" /> Text of the law
+
+                <input type="radio" name="menu2" value="american2"   onclick="document.law.americanLaw2.disabled=false; document.law.australianLaw2.disabled=false" /> American laws
+                <input type="radio" name="menu2" value="australian2" onclick="document.law.australianLaw2.disabled=false; document.law.americanLaw2.disabled=false" /> Australian laws
+
+                <select name="americanLaw2" disabled="disabled">
+                    <option value=" " selected="selected">American Laws</option>
+                    <option value="american1">Title 15 of the U. S. Code</option>
+                    <option value="american2">Title 17 of the U. S. Code</option>
+                    <option value="american3">Title 18 of the U. S. Code</option>
+                    <option value="american4">Title 42 of the U. S. Code</option>                   
+                    <option value="american5">Title 47 of the U. S. Code</option>
+                    <option value="american6">Section 225 of the Homland Security Act</option>
+                    <option value="american7">Access Device Fraud Act of 1984</option>
+                    <option value="american8">Child Online Protection Act (COPA)</option>
+                    <option value="american9">Child Pornography Prevention Act (CPPA)</option>
+                    <option value="american10">Child Protection and Obscenity Enforcement Act</option>
+                    <option value="american11">Child Protection Restoration and Penalties Enforcement Act</option>
+                    <option value="american12">Communications Decency Act</option>
+                    <option value="american13">The Computer Fraud and Abuse Act (CFAA)</option>
+                    <option value="american14">Computer Misuse Act</option>
+                    <option value="american15">The Computer Security Act of 1987</option>
+                    <option value="american16">Controlling the Assault of Non-Solicited Pornography and Marketing (CAN) Act of 2003</option>
+                    <option value="american17">The Cyber Security Enhancement Act of 2002</option>
+                    <option value="american18">The Digital Millennium Copyright Act of 1998 (DMCA)</option>
+                    <option value="american19">Economic Espionage Act of 1996</option>
+                    <option value="american20">Electronic Communications Privacy Act (ECPA)</option>
+                    <option value="american21">Fair Credit Reporting Act</option>
+                    <option value="american22">Identity Theft and Assumption Deterrence Act of 1998</option>
+                    <option value="american23">Information Technology Management Reform Act of 1996</option>
+                    <option value="american24">National Information Infrastructure Protection Act of 1996</option>
+                    <option value="american25">National Security Intelligence Reform Act of 2004</option>
+                    <option value="american26">No Electronic Theft Act of 1997</option>
+                </select>
+
+                <select name="australianLaw2" disabled="disabled">
+                    <option value=" " selected="selected">The Australian Criminal Code</option>
+                    <option value="australian1">Section 476</option>
+                    <option value="australian2">Section 477</option>
+                    <option value="australian3">Section 478</option>
+                </select>            
+
+            </div> <br />
+
+            <div style="float:left; margin-left:10px">
+                <input type="submit" value="Compare Laws"  />
+                <input type="reset" value="Reset form" onclick="document.law.australianLaw1.disabled=true; document.law.americanLaw1.disabled=true; document.law.australianLaw2.disabled=true; document.law.americanLaw2.disabled=true" />
+            </div>
+
+        </form>
+
+    </body>
+
+</html>

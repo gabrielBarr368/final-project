@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Expanding Photos</title>
+<style type="text/css">
+	h1 {color:red}
+	img.mini {border:none} 	
+	div#minis a:hover {background:white} 
+	div#minis a img.big {height: 0; width: 0; border-width: 0}
+	div#minis a:hover img.big {  position:absolute; top:70px; left:175px;
+                                     height:375px;width:500px; border:none}
+
+	#frame { position:absolute;  top:60px; left:165px;
+              height:375px; width:500px;         
+		border:2px solid red;
+	      font: 1em "Trebuchet MS", Verdana, sans-serif;
+	      color:red;padding:10px}
+
+
+
+	p {margin-bottom:26px} 
+
+
+
+
+        </style>
+	
+
+</head>
+
+<body>
+
+<h1> Pop-up Photo Album </h1>
+
+<div id="frame">
+<p>Hover mouse over the photos to enlarge them into this box.</p>
+</div>
+
+<div id="minis">
+
+<p>
+<a class="photo" title="Athens"  href="../images/athens1.jpg"> 
+<img class="mini" src="../images/athensThmb.jpg" alt="Athens" height="108" width="144">
+<img class="big" src="../images/athens1.jpg" alt="Athens" >
+</a></p>
+
+<p>
+<a class="photo" title="Parthenom treasury"  href="../images/Parthenon1.jpg">
+       <img class="mini" src="../images/Parthenon1Thmb.jpg" alt="Parthenon treasury" height="108" width="144">
+	<img class="big" src="../images/Parthenon1.jpg" alt="Parthenon treasury">
+	</a></p>
+
+<p><a class="photo" title="Parthenom statues"  href="../images/Parthenon2.jpg">
+       <img class="mini" src="../images/Parthenon2Thmb.jpg" alt="Parthenon statues" height="108" width="144">
+	 <img class="big" src="../images/Parthenon2.jpg" alt="Parthenon statues">  
+	</a></p>
+
+<p>   <a class="photo" title="Oracle"  href="../images/OracleAtDelphi.jpg">
+<img class="mini" src="../images/OracleDelphiThmb.jpg" alt="Oracle at Delphi" height="108" width="144">
+<img class="big" src="../images/OracleAtDelphi.jpg" alt="Oracle at Delphi">	  
+	</a></p>
+</div>
+
+</body>
+</html>

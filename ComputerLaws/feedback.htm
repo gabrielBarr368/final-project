@@ -1,0 +1,299 @@
+<!--
+Gabriel Barr
+Last Modified: Tuesday, November 12th, 2013
+Purpose: The purpose of this page is to allow users to provide me with feedback
+Algorithm: Checks to see if each check box is checked.  If it is, then it shows the corresponding text box.  If the checkbox is unchecked, 
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+	<head>
+		<title>Feedback</title>
+		
+				<link href="css/horizontal_menu.css" rel="stylesheet" type="text/css" />
+
+		<script language="javascript" type="text/javascript">
+
+				function showFeedback(displayedFeedback, hiddenFeedback)
+				{
+
+					if (displayedFeedback == 'law')  //checks to see if the user wants to suggest a new law 
+					{
+						if (document.feedback.feedback1.checked == true)  //if so, then it shows the American and Australian radio buttons
+						{
+								document.getElementById(displayedFeedback).style.display='block';
+						}
+						else if (document.feedback.feedback1.checked == false)  //otherwise it hides them
+						{
+								document.getElementById(displayedFeedback).style.display='none';
+								document.getElementById('american').style.display='none';
+								document.getElementById('australian').style.display='none';
+						}
+					}
+					else if (displayedFeedback == 'tag')    //checks to see if the user wants to suggest a new quick link
+					{
+						if (document.feedback.feedback2.checked == true)  //if so, then it shows a textbox to allow the user to suggest one
+						{
+								document.getElementById(displayedFeedback).style.display='block';
+						}
+						else if (document.feedback.feedback2.checked == false)  //otherwise it hides the textbox
+						{
+								document.getElementById(displayedFeedback).style.display='none';
+						}
+					}
+					else if (displayedFeedback == 'term')    //checks to see if the user wants to suggest a new quick link
+					{
+						if (document.feedback.feedback3.checked == true)  //if so, then it shows a textbox to allow the user to suggest one
+						{
+								document.getElementById(displayedFeedback).style.display='block';
+						}
+						else if (document.feedback.feedback3.checked == false)  //otherwise it hides the textbox
+						{
+								document.getElementById(displayedFeedback).style.display='none';
+						}
+					}
+					else if (displayedFeedback == 'service')  //checks to see if the user wants to suggest a new service
+					{
+						if (document.feedback.feedback4.checked == true)  //if so, then it shows a textbox to allow the user to suggest one
+						{
+								document.getElementById(displayedFeedback).style.display='block';
+						}
+						else if (document.feedback.feedback4.checked == false)  //otherwise it hides the textbox
+						{
+								document.getElementById(displayedFeedback).style.display='none';
+						}
+					}
+					else if (displayedFeedback == 'page')  //checks to see if the user wants to suggest a new page
+					{
+						if (document.feedback.feedback5.checked == true)  //if so, then it shows a textbox to allow the user to suggest one
+						{
+								document.getElementById(displayedFeedback).style.display='block';
+						}
+						else if (document.feedback.feedback5.checked == false)  //otherwise it hides the textbox
+						{
+								document.getElementById(displayedFeedback).style.display='none';
+						}
+					}
+					else if (displayedFeedback == 'alternative')  //checks to see if the user wants to suggest an alternative summary
+					{
+						if (document.feedback.feedback6.checked == true)
+						{
+								document.getElementById(displayedFeedback).style.display='block';
+						}
+						else if (document.feedback.feedback6.checked == false)  //otherwise it hides the textbox
+						{
+								document.getElementById(displayedFeedback).style.display='none';
+						}
+					}
+					else if (displayedFeedback == 'error')  //checks to see if the user wants to suggest an error
+					{
+						if (document.feedback.feedback7.checked == true)  //if so, then it shows a textbox to allow the user to suggest one
+						{
+								document.getElementById(displayedFeedback).style.display='block';
+						}
+						else if (document.feedback.feedback7.checked == false)  //otherwise it hides the textbox
+						{
+								document.getElementById(displayedFeedback).style.display='none';
+						}
+					}
+					else if (displayedFeedback == 'other')  //checks to see if the user wants to suggest something else
+					{
+						if (document.feedback.feedback8.checked == true)  //if so, then it shows a textbox to allow the user to suggest one
+						{
+								document.getElementById(displayedFeedback).style.display='block';
+						}
+						else if (document.feedback.feedback8.checked == false)  //otherwise it hides the textbox
+						{
+								document.getElementById(displayedFeedback).style.display='none';
+						}
+					}
+					else if (displayedFeedback == 'american')//if the user selects the American radio button then it shows a textbox to allow the user to suggest a new American law 
+					{
+					document.getElementById(displayedFeedback).style.display='block';
+					document.getElementById(hiddenFeedback).style.display='none';
+					}
+					else if (displayedFeedback == 'australian')//if the user selects the Australians radio button then it shows a textbox to allow the user to suggest a new Australian law
+					{
+					document.getElementById(displayedFeedback).style.display='block';
+					document.getElementById(hiddenFeedback).style.display='none';
+					}
+				}
+
+				function resetFeedback(feedback1, feedback2, feedback3, feedback4, feedback5, feedback6, feedback7, feedback8, feedback9, feedback10)  //if the reset button is pushed, then hide all of the textboxes
+				{
+						document.getElementById(feedback1).style.display='none';
+						document.getElementById(feedback2).style.display='none';
+						document.getElementById(feedback3).style.display='none';
+						document.getElementById(feedback4).style.display='none';
+						document.getElementById(feedback5).style.display='none';
+						document.getElementById(feedback6).style.display='none';
+						document.getElementById(feedback7).style.display='none';
+						document.getElementById(feedback8).style.display='none';
+						document.getElementById(feedback9).style.display='none';
+						document.getElementById(feedback10).style.display='none';
+				}  //end of function reset
+				
+				function find(searchName)  //Retrieves the search term that the user typed in and sends it to the php script that performs the search
+				{
+					searchString = document.getElementById(searchName).value;
+					window.location="search.php?q=" + searchString;
+				}
+
+		</script>
+
+	</head>
+
+	<body>
+
+		<main role="main">
+			<nav role="navigation">
+				<div id="navbar"><!--provides links to all of the pages on this website-->
+					<ul>
+							<li style="width:50px"><a href="home.htm">Home</a></li>
+							<li style="width:100px"><a href="compareLaw.htm">Compare Laws</a></li>
+							<li><a href="americanLaw.htm">List of American Federal Computer Laws</a></li>
+							<li><a href="australianLaw.htm">List of Australian Federal Computer Laws</a></li>
+							<li style="width:65px"><a href="glossary.htm">Glossary<br /></a></li>
+							<li style="width:70px"><a href="feedback.htm">Feedback<br /></a></li>
+							<li style="width:250px">
+								<a>
+									<select name="tags" id="Search">
+											<option value=" " selected="selected">Categories</option>
+											<option value="strict liability" onmouseup ="find('Search')">Strict Liability</option>
+											<option value="absolute liability" onmouseup ="find('Search')">Absolute Liability</option> 
+											<option value="fine" onmouseup ="find('Search')">Fine</option>
+											<option value="imprisonment" onmouseup ="find('Search')">Imprisonment </option>
+											<option value="knowingly" onmouseup ="find('Search')">Knowingly</option>
+											<option value="intentionally" onmouseup ="find('Search')">Intentionally</option> 
+											<option value="recklessly" onmouseup ="find('Search')">Recklessly</option>
+											<option value="fraud" onmouseup ="find('Search')">Fraud </option>
+											<option value="child pornography" onmouseup ="find('Search')">Child Pornography</option>
+											<option value="protected computer" onmouseup ="find('Search')">Protected Computer</option>
+											<option value="commonwealth computer" onmouseup ="find('Search')">Commonwealth Computer </option>
+											<option value="authorization" onmouseup ="find('Search')">Authorization </option>
+											<option value="authorized" onmouseup ="find('Search')">Authorized</option>
+											<option value="unauthorised" onmouseup ="find('Search')">Authorised</option> 
+											<option value="damage" onmouseup ="find('Search')">Damage</option>
+											<option value="foreign commerce" onmouseup ="find('Search')">Foreign Commerce</option> 
+											<option value="investigate" onmouseup ="find('Search')">Investigate</option>
+											<option value="possession" onmouseup ="find('Search')">Possession</option>
+									</select>
+								</a>
+							</li>
+							<li style="width:800px"><a><input type="text" id="Search2" size="25" onKeyPress="return submitenter(this,event)" /><input type="button" value="Search" onclick="find('Search2')" /></a></li>
+						</ul>
+					</div>
+			</nav>
+
+			<form name="feedback" method="post" enctype="plain/text" action="mailto:gabriel.barr368@gmail.com">
+		
+				Thank you for volunteering to provide feedback.  Please select the type of feedback you would like to submit (check all that apply).<br />
+				
+				<input type="checkbox" name="feedback1" value="law" onclick="showFeedback('law')" />Suggest a new law for me to consider (Please note: At this point I am only considering American or Australian federal laws.  At some point I hope to extend this to state laws and other countries, but I have not done so yet.  Sorry for any Inconvenience.)<br />
+				<div id="law" style="display: none">
+					Is this law an American or Australian law?<br />
+					<input type="radio" name="law" value="american" onclick="showFeedback('american', 'australian')" >American
+					<input type="radio" name="law" value="australian" onclick="showFeedback('australian', 'american')">Australian
+				</div>
+
+				<div id="american" style="display: none">
+					Please type in the name of the American law that you would like me to consider.<br />
+					<input type="textbox">
+				</div>
+
+				<div id="australian" style="display: none">
+					Please type in the name of the Australian law that you would like me to consider.<br />
+					<input type="textbox">
+				</div>
+				
+				<input type="checkbox" name="feedback2" value="tag" onclick="showFeedback('tag')" />Suggest a new tag for me to consider<br />
+				<div id="tag" style="display: none">
+					What other term(s) do you think that I should tag?<br />
+					<input type="textbox">
+				</div>
+				
+				<input type="checkbox" name="feedback3" value="term" onclick="showFeedback('term')" />Suggest a new term that you think I should add to my glossary<br />
+				<div id="term" style="display: none">
+					What other term(s) do you think that I should include in my glossary?<br />
+					<input type="textbox">
+				</div>
+				
+				<input type="checkbox" name="feedback4" value="service" onclick="showFeedback('service')" />Suggest a new service you would like to see me add<br />
+				<div id="service" style="display: none">
+					What other service(s) would you like to see?<br />
+					<input type="textbox">
+				</div>
+				
+				<input type="checkbox" name="feedback5" value="page" onclick="showFeedback('page')" />Suggest a new page you would like me to add<br />
+				<div id="page" style="display: none">
+					What page(s) do you think that I should add?<br />
+					<input type="textbox">
+				</div>
+				
+				<input type="checkbox" name="feedback6" value="alternative" onclick="showFeedback('alternative')" />Suggest an alternative summary for a law<br />
+				<div id="alternative" style="display: none">
+					Which law do you feel that I summarized improperly?<br />
+					<input type="textbox"><br />
+					What do you think the summary should say instead?<br />
+					<textarea rows="20" cols="60"></textarea>
+				</div>
+				
+				<input type="checkbox" name="feedback7" value="error" onclick="showFeedback('error')" />Report an error<br />
+				<div id="error" style="display: none">
+					What did I do/say wrong?<br />
+					<input type="textbox">
+				</div>
+				
+				<input type="checkbox" name="feedback8" value="other" onclick="showFeedback('other')" />Other<br />
+				<div id="other" style="display: none">
+					What would you like to suggest that I add to my website?<br />
+					<textarea rows="20" cols="60"></textarea>
+				</div>
+
+				<input type="submit" value="Submit Feedback">
+				<input type="reset" value="Reset Form" onclick="resetFeedback('law', 'tag', 'service', 'page', 'other', 'australian', 'american', 'alternative', 'error', 'term')" />
+			</form>
+		</main>
+		
+		<footer role="contentinfo">
+				<div id="navbar">  <!--provides links to other relevant websites-->
+					<ul>
+						<li style="width:170px; display:block; font-size:12px; color:#ffc100; height:30px; border:1px solid #000000; border-width:1px 0 1px 1px; background:#630063; padding-left:10px; line-height:29px; font-weight:bold;">List of other relevant sites.</li>
+						<li style="width:40px"><a href="http://www.fbi.gov/">FBI</a>
+								<ul>
+									<li><a href="http://www.fbi.gov/">The FBI, or the Federal Bureau of Information, is the main federal police force in America.  They are responsible for investigating most federal crimes</a></li>
+								</ul>
+						<li style="width:100px"><a href="http://www.secretservice.gov/">Secret Service</a>
+								<ul>
+									<li><a href="http://www.secretservice.gov/">The Secret Service is responsible for protecting important federal officials as well as investigating fraud and counterfeiting.</a></li>
+								</ul>
+						<li style="width:80px"><a href="http://www.senate.gov/">US Senate</a>
+								<ul>
+									<li><a href="http://www.senate.gov/">One of the two parts of the legislative branch of the U.S. Government.  Along with the U. S. House of Representatives, the U. S. Senate is responsible for creating federal laws.</a></li>
+								</ul>
+						<li style="width:180px"><a href="http://www.house.gov/">US House of Representatives</a>
+								<ul>
+									<li><a  href="http://www.house.gov/">One of the two parts of the legislative branch of the U.S. Government.  Along with the U. S. Senate, the U. S. House of Representatives is responsible for creating federal laws.</a></li>
+								</ul>
+						<li style="width:210px"><a href="http://www.law.cornell.edu/">Cornell Legal Information Institute</a>
+								<ul>
+									<li><a href="http://www.law.cornell.edu/">Cornell University site that allows you to view most U. S. Federal laws.</a></li>
+								</ul>
+						<li style="width:40px"><a href="http://www.afp.gov.au/">AFP</a>
+								<ul>
+									<li><a href="http://www.afp.gov.au/">The Australian Federal police.  The AFP is responsible for enforcing most Australian Federal Laws.</a></li>
+								</ul>
+						<li style="width:140px"><a href="http://www.aph.gov.au/">Australian Parliament</a>
+								<ul>
+									<li><a href="http://www.aph.gov.au/">The branch of the Australian Government that creates all Australian Federal laws.</a></li>
+								</ul>
+						<li style="width:80px"><a href="http://www.comlaw.gov.au/">Com Law</a>
+								<ul>
+									<li><a href="http://www.comlaw.gov.au/">An Australian Federal Government Website that allows you to view any Australian Federal Law.</a></li>
+								</ul>
+					</ul>
+				</div>
+		</footer>
+		
+	</body>
+	
+</html>
